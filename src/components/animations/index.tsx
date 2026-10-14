@@ -1,66 +1,114 @@
 import React from 'react'
 import type { AnimationKey, AnimationProps } from '../../data/types'
-import { TwoSumAnimation } from './TwoSumAnimation'
-import { GroupAnagramsAnimation } from './GroupAnagramsAnimation'
-import { LongestConsecutiveAnimation } from './LongestConsecutiveAnimation'
-import { MoveZeroesAnimation } from './MoveZeroesAnimation'
-import { MaxAreaAnimation } from './MaxAreaAnimation'
-import { ThreeSumAnimation } from './ThreeSumAnimation'
-import { TrapRainWaterAnimation } from './TrapRainWaterAnimation'
-import { LongestSubstringAnimation } from './LongestSubstringAnimation'
-import { FindAnagramsAnimation } from './FindAnagramsAnimation'
-import { SubarraySumAnimation } from './SubarraySumAnimation'
-import { MaxSlidingWindowAnimation } from './MaxSlidingWindowAnimation'
-import { MinWindowAnimation } from './MinWindowAnimation'
-import { MaxSubArrayAnimation } from './MaxSubArrayAnimation'
-import { MergeIntervalsAnimation } from './MergeIntervalsAnimation'
-import { RotateArrayAnimation } from './RotateArrayAnimation'
-import {
-  ValidAnimation, MajorityAnimation, StockAnimation,
-  ValidPalindromeAnimation, TwoSumSortedAnimation, MergeSortedAnimation,
-  BinarySearchStdAnimation, SearchRotatedAnimation, FindMinAnimation,
-  MinWindowGenAnimation, ValidParenAnimation, DailyTempAnimation,
-  ReverseLLAnimation, MergeLLAnimation,
-  TreeBFSAnimation, InvertTreeAnimation, LCAAnimation,
-  IslandsAnimation, RottenAnimation,
-  ClimbingAnimation, HouseRobberAnimation, CoinChangeAnimation,
-  LISAnimation, KadaneAnimation, UniquePathsAnimation,
-} from './GeneratedAnimations'
-import {
-  ProductExceptSelfAnimation, FirstMissingAnimation,
-  SortColorsAnimation, NextPermutationAnimation,
-  FindDuplicateAnimation, QuickSelectAnimation,
-} from './ArrayAnimations2'
-import {
-  CycleList1Animation, CycleList2Animation,
-  IntersectionLLAnimation, CopyRandomAnimation, MergeKListsAnimation,
-} from './ListAnimations2'
-import { LRUAnimation, MedianStreamAnimation } from './DesignAnimations'
-import { BuildTreeAnimation } from './TreeAnimations2'
-import {
-  DecodeStringAnimation, LongestValidParenAnimation, MinStackAnimation,
-} from './StackAnimations2'
-import { LargestRectangleAnimation } from './HistogramAnimation'
-import { LongestPalindromeAnimation } from './StringAnimations2'
-import { MedianTwoArraysAnimation } from './MedianTwoAnimation'
-import { HammingWeightAnimation, PalindromeNumAnimation } from './BitAnimations'
-import { PascalTriangleAnimation } from './PascalAnimation'
-import { TopoSortAnimation, TopKBucketAnimation } from './TopoAnimation'
-import {
-  InorderAnimation, SymmetricTreeAnimation, SortedToBstAnimation,
-  RightViewAnimation, FlattenTreeAnimation, PathSum3Animation,
-  MaxPathSumAnimation, TrieAnimation, PalindromePartitionAnimation,
-  SwapPairsAnimation, ReverseKGroupAnimation, PalindromeLlAnimation,
-  SortListAnimation, SearchInsertAnimation, FirstLastAnimation,
-  ContainsDuplicateAnimation, MissingNumberAnimation, SingleXorAnimation,
-  JumpGameAnimation, JumpGame2Animation, GasStationAnimation,
-  PartitionLabelsAnimation, RPNAnimation, CountBitsAnimation,
-  WordBreakDPAnimation, PerfectSquaresAnimation, KnapsackAnimation,
-  SubsequenceAnimation, LCSAnimation, EditDistanceAnimation,
-  SetZeroesAnimation, SpiralMatrixAnimation, RotateImageAnimation,
-  Search2d2Animation, MinPathSumAnimation, NQueensAnimation,
-  SudokuAnimation, WordSearchAnimation,
-} from './GeneratedAnimations2'
+
+// 动画按需加载：翻到卡片背面时才下载对应动画模块，避免单包过大
+const lazyAnim = <T extends React.ComponentType<AnimationProps>>(
+  loader: () => Promise<{ default: T }>,
+) => React.lazy(loader)
+
+const TwoSumAnimation = lazyAnim(() => import('./TwoSumAnimation').then((m) => ({ default: m.TwoSumAnimation })))
+const GroupAnagramsAnimation = lazyAnim(() => import('./GroupAnagramsAnimation').then((m) => ({ default: m.GroupAnagramsAnimation })))
+const LongestConsecutiveAnimation = lazyAnim(() => import('./LongestConsecutiveAnimation').then((m) => ({ default: m.LongestConsecutiveAnimation })))
+const MoveZeroesAnimation = lazyAnim(() => import('./MoveZeroesAnimation').then((m) => ({ default: m.MoveZeroesAnimation })))
+const MaxAreaAnimation = lazyAnim(() => import('./MaxAreaAnimation').then((m) => ({ default: m.MaxAreaAnimation })))
+const ThreeSumAnimation = lazyAnim(() => import('./ThreeSumAnimation').then((m) => ({ default: m.ThreeSumAnimation })))
+const TrapRainWaterAnimation = lazyAnim(() => import('./TrapRainWaterAnimation').then((m) => ({ default: m.TrapRainWaterAnimation })))
+const LongestSubstringAnimation = lazyAnim(() => import('./LongestSubstringAnimation').then((m) => ({ default: m.LongestSubstringAnimation })))
+const FindAnagramsAnimation = lazyAnim(() => import('./FindAnagramsAnimation').then((m) => ({ default: m.FindAnagramsAnimation })))
+const SubarraySumAnimation = lazyAnim(() => import('./SubarraySumAnimation').then((m) => ({ default: m.SubarraySumAnimation })))
+const MaxSlidingWindowAnimation = lazyAnim(() => import('./MaxSlidingWindowAnimation').then((m) => ({ default: m.MaxSlidingWindowAnimation })))
+const MinWindowAnimation = lazyAnim(() => import('./MinWindowAnimation').then((m) => ({ default: m.MinWindowAnimation })))
+const MaxSubArrayAnimation = lazyAnim(() => import('./MaxSubArrayAnimation').then((m) => ({ default: m.MaxSubArrayAnimation })))
+const MergeIntervalsAnimation = lazyAnim(() => import('./MergeIntervalsAnimation').then((m) => ({ default: m.MergeIntervalsAnimation })))
+const RotateArrayAnimation = lazyAnim(() => import('./RotateArrayAnimation').then((m) => ({ default: m.RotateArrayAnimation })))
+const ValidAnimation = lazyAnim(() => import('./GeneratedAnimations').then((m) => ({ default: m.ValidAnimation })))
+const MajorityAnimation = lazyAnim(() => import('./GeneratedAnimations').then((m) => ({ default: m.MajorityAnimation })))
+const StockAnimation = lazyAnim(() => import('./GeneratedAnimations').then((m) => ({ default: m.StockAnimation })))
+const ValidPalindromeAnimation = lazyAnim(() => import('./GeneratedAnimations').then((m) => ({ default: m.ValidPalindromeAnimation })))
+const TwoSumSortedAnimation = lazyAnim(() => import('./GeneratedAnimations').then((m) => ({ default: m.TwoSumSortedAnimation })))
+const MergeSortedAnimation = lazyAnim(() => import('./GeneratedAnimations').then((m) => ({ default: m.MergeSortedAnimation })))
+const BinarySearchStdAnimation = lazyAnim(() => import('./GeneratedAnimations').then((m) => ({ default: m.BinarySearchStdAnimation })))
+const SearchRotatedAnimation = lazyAnim(() => import('./GeneratedAnimations').then((m) => ({ default: m.SearchRotatedAnimation })))
+const FindMinAnimation = lazyAnim(() => import('./GeneratedAnimations').then((m) => ({ default: m.FindMinAnimation })))
+const MinWindowGenAnimation = lazyAnim(() => import('./GeneratedAnimations').then((m) => ({ default: m.MinWindowGenAnimation })))
+const ValidParenAnimation = lazyAnim(() => import('./GeneratedAnimations').then((m) => ({ default: m.ValidParenAnimation })))
+const DailyTempAnimation = lazyAnim(() => import('./GeneratedAnimations').then((m) => ({ default: m.DailyTempAnimation })))
+const ReverseLLAnimation = lazyAnim(() => import('./GeneratedAnimations').then((m) => ({ default: m.ReverseLLAnimation })))
+const MergeLLAnimation = lazyAnim(() => import('./GeneratedAnimations').then((m) => ({ default: m.MergeLLAnimation })))
+const TreeBFSAnimation = lazyAnim(() => import('./GeneratedAnimations').then((m) => ({ default: m.TreeBFSAnimation })))
+const InvertTreeAnimation = lazyAnim(() => import('./GeneratedAnimations').then((m) => ({ default: m.InvertTreeAnimation })))
+const LCAAnimation = lazyAnim(() => import('./GeneratedAnimations').then((m) => ({ default: m.LCAAnimation })))
+const IslandsAnimation = lazyAnim(() => import('./GeneratedAnimations').then((m) => ({ default: m.IslandsAnimation })))
+const RottenAnimation = lazyAnim(() => import('./GeneratedAnimations').then((m) => ({ default: m.RottenAnimation })))
+const ClimbingAnimation = lazyAnim(() => import('./GeneratedAnimations').then((m) => ({ default: m.ClimbingAnimation })))
+const HouseRobberAnimation = lazyAnim(() => import('./GeneratedAnimations').then((m) => ({ default: m.HouseRobberAnimation })))
+const CoinChangeAnimation = lazyAnim(() => import('./GeneratedAnimations').then((m) => ({ default: m.CoinChangeAnimation })))
+const LISAnimation = lazyAnim(() => import('./GeneratedAnimations').then((m) => ({ default: m.LISAnimation })))
+const KadaneAnimation = lazyAnim(() => import('./GeneratedAnimations').then((m) => ({ default: m.KadaneAnimation })))
+const UniquePathsAnimation = lazyAnim(() => import('./GeneratedAnimations').then((m) => ({ default: m.UniquePathsAnimation })))
+const ProductExceptSelfAnimation = lazyAnim(() => import('./ArrayAnimations2').then((m) => ({ default: m.ProductExceptSelfAnimation })))
+const FirstMissingAnimation = lazyAnim(() => import('./ArrayAnimations2').then((m) => ({ default: m.FirstMissingAnimation })))
+const SortColorsAnimation = lazyAnim(() => import('./ArrayAnimations2').then((m) => ({ default: m.SortColorsAnimation })))
+const NextPermutationAnimation = lazyAnim(() => import('./ArrayAnimations2').then((m) => ({ default: m.NextPermutationAnimation })))
+const FindDuplicateAnimation = lazyAnim(() => import('./ArrayAnimations2').then((m) => ({ default: m.FindDuplicateAnimation })))
+const QuickSelectAnimation = lazyAnim(() => import('./ArrayAnimations2').then((m) => ({ default: m.QuickSelectAnimation })))
+const CycleList1Animation = lazyAnim(() => import('./ListAnimations2').then((m) => ({ default: m.CycleList1Animation })))
+const CycleList2Animation = lazyAnim(() => import('./ListAnimations2').then((m) => ({ default: m.CycleList2Animation })))
+const IntersectionLLAnimation = lazyAnim(() => import('./ListAnimations2').then((m) => ({ default: m.IntersectionLLAnimation })))
+const CopyRandomAnimation = lazyAnim(() => import('./ListAnimations2').then((m) => ({ default: m.CopyRandomAnimation })))
+const MergeKListsAnimation = lazyAnim(() => import('./ListAnimations2').then((m) => ({ default: m.MergeKListsAnimation })))
+const LRUAnimation = lazyAnim(() => import('./DesignAnimations').then((m) => ({ default: m.LRUAnimation })))
+const MedianStreamAnimation = lazyAnim(() => import('./DesignAnimations').then((m) => ({ default: m.MedianStreamAnimation })))
+const BuildTreeAnimation = lazyAnim(() => import('./TreeAnimations2').then((m) => ({ default: m.BuildTreeAnimation })))
+const DecodeStringAnimation = lazyAnim(() => import('./StackAnimations2').then((m) => ({ default: m.DecodeStringAnimation })))
+const LongestValidParenAnimation = lazyAnim(() => import('./StackAnimations2').then((m) => ({ default: m.LongestValidParenAnimation })))
+const MinStackAnimation = lazyAnim(() => import('./StackAnimations2').then((m) => ({ default: m.MinStackAnimation })))
+const LargestRectangleAnimation = lazyAnim(() => import('./HistogramAnimation').then((m) => ({ default: m.LargestRectangleAnimation })))
+const LongestPalindromeAnimation = lazyAnim(() => import('./StringAnimations2').then((m) => ({ default: m.LongestPalindromeAnimation })))
+const MedianTwoArraysAnimation = lazyAnim(() => import('./MedianTwoAnimation').then((m) => ({ default: m.MedianTwoArraysAnimation })))
+const HammingWeightAnimation = lazyAnim(() => import('./BitAnimations').then((m) => ({ default: m.HammingWeightAnimation })))
+const PalindromeNumAnimation = lazyAnim(() => import('./BitAnimations').then((m) => ({ default: m.PalindromeNumAnimation })))
+const PascalTriangleAnimation = lazyAnim(() => import('./PascalAnimation').then((m) => ({ default: m.PascalTriangleAnimation })))
+const TopoSortAnimation = lazyAnim(() => import('./TopoAnimation').then((m) => ({ default: m.TopoSortAnimation })))
+const TopKBucketAnimation = lazyAnim(() => import('./TopoAnimation').then((m) => ({ default: m.TopKBucketAnimation })))
+const InorderAnimation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.InorderAnimation })))
+const SymmetricTreeAnimation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.SymmetricTreeAnimation })))
+const SortedToBstAnimation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.SortedToBstAnimation })))
+const RightViewAnimation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.RightViewAnimation })))
+const FlattenTreeAnimation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.FlattenTreeAnimation })))
+const PathSum3Animation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.PathSum3Animation })))
+const MaxPathSumAnimation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.MaxPathSumAnimation })))
+const TrieAnimation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.TrieAnimation })))
+const PalindromePartitionAnimation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.PalindromePartitionAnimation })))
+const SwapPairsAnimation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.SwapPairsAnimation })))
+const ReverseKGroupAnimation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.ReverseKGroupAnimation })))
+const PalindromeLlAnimation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.PalindromeLlAnimation })))
+const SortListAnimation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.SortListAnimation })))
+const SearchInsertAnimation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.SearchInsertAnimation })))
+const FirstLastAnimation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.FirstLastAnimation })))
+const ContainsDuplicateAnimation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.ContainsDuplicateAnimation })))
+const MissingNumberAnimation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.MissingNumberAnimation })))
+const SingleXorAnimation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.SingleXorAnimation })))
+const JumpGameAnimation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.JumpGameAnimation })))
+const JumpGame2Animation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.JumpGame2Animation })))
+const GasStationAnimation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.GasStationAnimation })))
+const PartitionLabelsAnimation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.PartitionLabelsAnimation })))
+const RPNAnimation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.RPNAnimation })))
+const CountBitsAnimation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.CountBitsAnimation })))
+const WordBreakDPAnimation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.WordBreakDPAnimation })))
+const PerfectSquaresAnimation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.PerfectSquaresAnimation })))
+const KnapsackAnimation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.KnapsackAnimation })))
+const SubsequenceAnimation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.SubsequenceAnimation })))
+const LCSAnimation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.LCSAnimation })))
+const EditDistanceAnimation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.EditDistanceAnimation })))
+const SetZeroesAnimation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.SetZeroesAnimation })))
+const SpiralMatrixAnimation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.SpiralMatrixAnimation })))
+const RotateImageAnimation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.RotateImageAnimation })))
+const Search2d2Animation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.Search2d2Animation })))
+const MinPathSumAnimation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.MinPathSumAnimation })))
+const NQueensAnimation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.NQueensAnimation })))
+const SudokuAnimation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.SudokuAnimation })))
+const WordSearchAnimation = lazyAnim(() => import('./GeneratedAnimations2').then((m) => ({ default: m.WordSearchAnimation })))
 
 export interface AnimationEntry {
   Component: React.ComponentType<AnimationProps>

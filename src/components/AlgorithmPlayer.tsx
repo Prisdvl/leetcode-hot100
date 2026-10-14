@@ -44,10 +44,12 @@ export const AlgorithmPlayer: React.FC<Props> = ({
         </div>
       </div>
 
-      {/* svg */}
+      {/* svg（动画组件按需加载） */}
       <div className="p-2 bg-white">
         <svg viewBox="0 0 600 220" className="w-full h-auto">
-          <AnimationComponent stepIndex={stepIndex} />
+          <React.Suspense fallback={null}>
+            <AnimationComponent stepIndex={stepIndex} />
+          </React.Suspense>
         </svg>
       </div>
 
