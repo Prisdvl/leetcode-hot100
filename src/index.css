@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { height: 100%; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #f9fafb;
+  color: #111827;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Code block */
+.code-block {
+  background: #111827;
+  color: #d1d5db;
+  font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+  font-size: 12.5px;
+  line-height: 1.6;
+  border-radius: 8px;
+}
+.code-block .tok-kw { color: #c586c0; }
+.code-block .tok-str { color: #ce9178; }
+.code-block .tok-num { color: #b5cea8; }
+.code-block .tok-com { color: #6a9955; font-style: italic; }
+.code-block .tok-fn-hint { color: #dcdcaa; }
+.code-block .tok-type { color: #4ec9b0; }
+.code-block .tok-punc { color: #d1d5db; }
+
+/* Custom slim scrollbar */
+.slim-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #d1d5db transparent;
+}
+.slim-scroll::-webkit-scrollbar { width: 4px; height: 4px; }
+.slim-scroll::-webkit-scrollbar-track { background: transparent; }
+.slim-scroll::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 2px;
+}
+.slim-scroll::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+.fast-transition { transition: all 140ms ease; }
