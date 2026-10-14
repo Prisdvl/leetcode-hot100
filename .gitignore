@@ -12,6 +12,14 @@ dev.log
 # vercel
 .vercel
 
+# scripts/ 验证运行产物（脚本源码保留）
+scripts/shot-*.png
+scripts/zoom-cell.png
+scripts/verify-preview*.html
+scripts/verify-report.json
+scripts/verify-bundle.cjs
+scripts/verify-bundle.mjs
+
 # editor / os
 .DS_Store
 Thumbs.db
