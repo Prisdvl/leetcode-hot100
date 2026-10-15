@@ -1,6 +1,8 @@
 # LeetCode Hot 100 · 算法记忆卡片
 
 > by [@Prisdvl](https://github.com/Prisdvl) · 仓库：[Prisdvl/leetcode-hot100](https://github.com/Prisdvl/leetcode-hot100)
+>
+> 在线体验：[leetcode-hot100.vercel.app](https://leetcode-hot100.vercel.app/)（无需安装，打开即用）
 
 一个基于「闪卡 + 间隔重复」的 LeetCode Hot 100 刷题记忆应用。每张卡片正面是题意，翻到背面包含核心洞察、分步推导、**可逐帧播放的算法动画**、TypeScript 代码模板、复杂度分析与易错点，帮助你把解题套路真正记进长期记忆。
 
@@ -134,4 +136,6 @@ interface CardData {
 
 ## 部署
 
-项目为纯静态站点，`npm run build` 产物在 `dist/`，可部署到任意静态托管。仓库已包含 Vercel 配置（`.vercel/`），导入 Vercel 后框架预设选择 **Vite** 即可零配置发布。
+线上地址：**[https://leetcode-hot100.vercel.app/](https://leetcode-hot100.vercel.app/)**，由 Vercel 自动部署 `main` 分支。
+
+项目为纯静态站点，`npm run build` 产物在 `dist/`，也可部署到任意静态托管。在 Vercel 中导入本仓库后框架预设选择 **Vite** 即可零配置发布，后续 push 到 `main` 会自动触发更新。
